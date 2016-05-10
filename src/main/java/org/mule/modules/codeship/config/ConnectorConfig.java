@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.codeship.config;
 
 import org.mule.api.annotations.components.Configuration;
@@ -13,11 +16,16 @@ public class ConnectorConfig {
 	  @Optional
 	  @Default("https://codeship.com/api/v1")
 	  private String url = "https://codeship.com/api/v1";
+	
+	@Configurable
+  @Optional
+  @Default("3d1228d0f8050133ec772eb9f408a9c3")
+	private String apiKey = "3d1228d0f8050133ec772eb9f408a9c3";
 
-	  @Configurable
+	/*  @Configurable
 	  @Optional
 	  @RestHeaderParam("Authorization")
-	  private String authorization = "Bearer 3d1228d0f8050133ec772eb9f408a9c3";
+	  private String authorization = "Bearer 3d1228d0f8050133ec772eb9f408a9c3";*/
 
 	  public String getUrl() {
 	    return url;
@@ -27,11 +35,19 @@ public class ConnectorConfig {
 	    this.url = url;
 	  }
 
-	  public String getAuthorization() {
+    public String getApiKey() {
+      return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+      this.apiKey = apiKey;
+    }
+
+	 /* public String getAuthorization() {
 	    return authorization;
 	  }
 
 	  public void setAuthorization(String authorization) {
 	    this.authorization = authorization;
-	  }
+	  }*/
 }

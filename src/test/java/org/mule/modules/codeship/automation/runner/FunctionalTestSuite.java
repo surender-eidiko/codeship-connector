@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.codeship.automation.runner;
 
 import org.junit.AfterClass;

@@ -1,7 +1,13 @@
+/**
+ *
+ */
 package org.mule.modules.codeship.bean;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProjectIdGetResponse extends StatusResponse {
 
 	String id;

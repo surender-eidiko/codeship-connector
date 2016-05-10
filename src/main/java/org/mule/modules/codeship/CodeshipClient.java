@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.codeship;
 
 import java.lang.reflect.Constructor;
@@ -5,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.mule.modules.codeship.bean.BuildIdGetResponse;
@@ -18,6 +22,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 public class CodeshipClient {
 
@@ -40,18 +45,27 @@ public class CodeshipClient {
 
 	public ListOfProgectsGetResponse getListOfProjects() {
 		WebResource webResource = getApiResource().path("projects.json");
+		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	      queryParams.add("api_key",getConnector().getConfig().getApiKey());
+	    webResource = webResource.queryParams(queryParams);
 		return (ListOfProgectsGetResponse) getData(webResource,
 				ListOfProgectsGetResponse.class);
 	}
 	
 	public ProjectIdGetResponse getProjectById(String projectId) {
 		WebResource webResource = getApiResource().path("projects").path(projectId+".json");
+		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+     queryParams.add("api_key",getConnector().getConfig().getApiKey());
+     webResource = webResource.queryParams(queryParams);
 			    return (ProjectIdGetResponse) getData(webResource,
 			    		ProjectIdGetResponse.class);
 	}
 	
 	public BuildIdGetResponse restartBuildById(String buildId) {
 		WebResource webResource = getApiResource().path("builds").path(buildId).path("restart.json");
+		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+     queryParams.add("api_key",getConnector().getConfig().getApiKey());
+     webResource = webResource.queryParams(queryParams);
 	    return (BuildIdGetResponse) postData(null,webResource,
 	    		BuildIdGetResponse.class);
 	}
@@ -68,8 +82,8 @@ public class CodeshipClient {
 			Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
 		builder.type(MediaType.APPLICATION_JSON);
-		ObjectMapper mapper = new ObjectMapper();
-		String input = convertObjectToString(request, mapper);
+	
+		String input = convertObjectToString(request);
 
 		ClientResponse clientResponse = builder.post(ClientResponse.class,
 				input);
@@ -81,8 +95,8 @@ public class CodeshipClient {
 		WebResource.Builder builder = webResource
 				.accept(MediaType.APPLICATION_JSON);
 
-		builder.header("Authorization", connector.getConfig()
-				.getAuthorization());
+	//	builder.header("Authorization", connector.getConfig()
+	//			.getAuthorization());
 		return builder;
 	}
 
@@ -107,12 +121,13 @@ public class CodeshipClient {
 				log.log(Level.SEVERE, "Error", ex);
 			}
 		}
-
+System.out.println(convertObjectToString(statusResponse));
 		return statusResponse;
 
 	}
 
-	private String convertObjectToString(Object request, ObjectMapper mapper) {
+	private String convertObjectToString(Object request) {
+	  ObjectMapper mapper = new ObjectMapper();
 		String input = "";
 
 		try {

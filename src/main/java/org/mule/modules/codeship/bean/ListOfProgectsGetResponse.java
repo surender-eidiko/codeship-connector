@@ -1,18 +1,31 @@
+/**
+ *
+ */
 package org.mule.modules.codeship.bean;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ListOfProgectsGetResponse extends StatusResponse{
 
-	List<ProjectIdGetResponse> listOfProgectsGetResponse;
-	
-	public List<ProjectIdGetResponse> getListOfProgectsGetResponse() {
-		return listOfProgectsGetResponse;
-	}
-	public void setListOfProgectsGetResponse(
-			List<ProjectIdGetResponse> listOfProgectsGetResponse) {
-		this.listOfProgectsGetResponse = listOfProgectsGetResponse;
-	}
-	
+  private Projects[] projects;
+
+  public Projects[] getProjects ()
+  {
+      return projects;
+  }
+
+  public void setProjects (Projects[] projects)
+  {
+      this.projects = projects;
+  }
+
+  @Override
+  public String toString()
+  {
+      return "ClassPojo [projects = "+projects+"]";
+  }
 	
 }

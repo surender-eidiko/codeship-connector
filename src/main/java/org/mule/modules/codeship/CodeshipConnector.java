@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.codeship;
 
 import java.util.Map;
@@ -16,7 +19,7 @@ import org.mule.modules.codeship.config.ConnectorConfig;
 
 
 
-@Connector(name="codeship", friendlyName="Codeship")
+@Connector(name="codeship", friendlyName="Codeship", minMuleVersion = "3.7.2")
 @MetaDataScope( DataSenseResolver.class )
 public class CodeshipConnector {
 
