@@ -1,0 +1,6 @@
+<!-- BEGIN_INCLUDE(codeship:greet) -->
+    <codeship:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(codeship:greet) -->
+<!-- BEGIN_INCLUDE(codeship:add-entity) -->
+    <codeship:add-entity config-ref="" key="id1"/>
+<!-- END_INCLUDE(codeship:add-entity) -->

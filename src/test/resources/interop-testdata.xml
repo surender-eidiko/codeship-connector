@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<connector name="Codeship">
+    <properties>
+        <connectivity-support>false</connectivity-support>
+        <OAuth-authentication>false</OAuth-authentication>
+        <metadata>static</metadata>
+        <datasense-enabled>true</datasense-enabled>
+        <transformer>false</transformer>
+    </properties>
+    <global-config credentialsFile="">
+        <config name="config">
+            <attributes>
+                <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://codeship.com/api/v1" category="General"></attribute>
+                <attribute name="authorization" use="optional" caption="Authorization" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </config>
+    </global-config>
+    <message-processors>
+        <processor name="addEntity" xmlName="add-entity" caption="Add entity">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="key" use="optional" caption="Key" group="General" type="type-chooser" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="key" use="required" caption="Key" group="General" type="type-chooser" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="entity" use="optional" caption="Entity" group="General" type="element-controller-map" javaType="java.util.Map&lt;java.lang.String,java.lang.Object&gt;" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getListOfProjects" xmlName="get-list-of-projects" caption="Get list of projects">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements/>
+        </processor>
+        <processor name="getProjectById" xmlName="get-project-by-id" caption="Get project by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="projectId" use="required" caption="Project Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="restartBuildById" xmlName="restart-build-by-id" caption="Restart build by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="buildId" use="required" caption="Build Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+    </message-processors>
+</connector>
