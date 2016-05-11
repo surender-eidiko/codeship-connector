@@ -1,25 +1,65 @@
+/**
+ *
+ */
 package org.mule.modules.codeship.bean;
 
-public class Builds {
-  
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Builds extends StatusResponse {
+	/**
+	   * The message text for the build
+	   *
+	   */
   private String message;
-
+  /**
+   * The build id.
+   *
+   */
   private String id;
-
+  /**
+   * The build status
+   *
+   */
   private String status;
 
+  /**
+   * The id of the commit.
+   *
+   */
   private String commit_id;
 
+  /**
+   * The project id.
+   *
+   */
   private String project_id;
-
+  /**
+   * The build start time
+   *
+   */
   private String started_at;
-
+  /**
+   * The branch name in the repository.
+   *
+   */
   private String branch;
-
+  
+  /**
+   * The name of the user.
+   *
+   */
   private String github_username;
-
+  
+  /**
+   * The uuid
+   *
+   */
   private String uuid;
-
+  /**
+   * The build finish time
+   *
+   */
   private String finished_at;
 
   public String getMessage ()

@@ -5,7 +5,7 @@ package org.mule.modules.codeship.automation.functional;
 
 import org.junit.Before;
 import org.mule.modules.codeship.CodeshipConnector;
-import org.mule.modules.codeship.bean.ListOfProgectsGetResponse;
+import org.mule.modules.codeship.bean.ListOfProjectsGetResponse;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
@@ -46,9 +46,9 @@ public abstract class CodeShipAbstractTestCases extends
 
 	}
 	
-	public ListOfProgectsGetResponse getProjectList(){
+	public ListOfProjectsGetResponse getProjectList(){
 	  
-	  ListOfProgectsGetResponse listOfProjects = getConnector().getListOfProjects();
+	  ListOfProjectsGetResponse listOfProjects = getConnector().getListOfProjects();
 	  return listOfProjects;
 	}
 	

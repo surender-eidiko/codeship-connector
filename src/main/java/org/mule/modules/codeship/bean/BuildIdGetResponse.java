@@ -8,8 +8,8 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BuildIdGetResponse extends StatusResponse {
 	
-	String id;
-	String uuid;
+	private String id;
+	private String uuid;
 	
 	public String getId() {
 		return id;

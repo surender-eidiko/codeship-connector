@@ -12,7 +12,7 @@
             <attributes>
                 <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://codeship.com/api/v1" category="General"></attribute>
-                <attribute name="authorization" use="optional" caption="Authorization" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="apiKey" use="optional" caption="Api Key" group="General" type="string" javaType="java.lang.String" default="3d1228d0f8050133ec772eb9f408a9c3" category="General"></attribute>
             </attributes>
         </config>
     </global-config>

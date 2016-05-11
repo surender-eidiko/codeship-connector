@@ -12,9 +12,9 @@ import javax.ws.rs.core.MultivaluedMap;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.mule.modules.codeship.bean.BuildIdGetResponse;
-import org.mule.modules.codeship.bean.ProjectIdGetResponse;
+import org.mule.modules.codeship.bean.Projects;
 import org.mule.modules.codeship.bean.StatusResponse;
-import org.mule.modules.codeship.bean.ListOfProgectsGetResponse;
+import org.mule.modules.codeship.bean.ListOfProjectsGetResponse;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -43,22 +43,22 @@ public class CodeshipClient {
 				.getUrl());
 	}
 
-	public ListOfProgectsGetResponse getListOfProjects() {
+	public ListOfProjectsGetResponse getListOfProjects() {
 		WebResource webResource = getApiResource().path("projects.json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 	      queryParams.add("api_key",getConnector().getConfig().getApiKey());
 	    webResource = webResource.queryParams(queryParams);
-		return (ListOfProgectsGetResponse) getData(webResource,
-				ListOfProgectsGetResponse.class);
+		return (ListOfProjectsGetResponse) getData(webResource,
+				ListOfProjectsGetResponse.class);
 	}
 	
-	public ProjectIdGetResponse getProjectById(String projectId) {
+	public Projects getProjectById(String projectId) {
 		WebResource webResource = getApiResource().path("projects").path(projectId+".json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
      queryParams.add("api_key",getConnector().getConfig().getApiKey());
      webResource = webResource.queryParams(queryParams);
-			    return (ProjectIdGetResponse) getData(webResource,
-			    		ProjectIdGetResponse.class);
+			    return (Projects) getData(webResource,
+			    		Projects.class);
 	}
 	
 	public BuildIdGetResponse restartBuildById(String buildId) {

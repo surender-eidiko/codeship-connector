@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.codeship.CodeshipConnector;
 import org.mule.modules.codeship.automation.runner.FunctionalTestSuite;
-import org.mule.modules.codeship.bean.ListOfProgectsGetResponse;
+import org.mule.modules.codeship.bean.ListOfProjectsGetResponse;
 
 public class GetListOfOfProjectsTestCases extends CodeShipAbstractTestCases{
 
@@ -22,7 +22,7 @@ public class GetListOfOfProjectsTestCases extends CodeShipAbstractTestCases{
 	@Category({FunctionalTestSuite.class})
 	public void testGetListOfProjects()
 	{
-		ListOfProgectsGetResponse listOfProjects = getProjectList();
+		ListOfProjectsGetResponse listOfProjects = getProjectList();
 		assertNotNull(listOfProjects);
 	    assertEquals("200", listOfProjects.getStatusCode() );
 	    

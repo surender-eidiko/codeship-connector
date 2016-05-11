@@ -1,71 +1,89 @@
+/**
+ *
+ */
 package org.mule.modules.codeship.bean;
 
-public class Projects {
-  
-  private String id;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-  private String repository_name;
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Projects extends StatusResponse {
 
-  private Builds[] builds;
+	/**
+	 * The unique ID for the project.
+	 *
+	 */
+	private String id;
 
-  private String repository_provider;
+	/**
+	 * The name of the repository.
+	 *
+	 */
+	private String repository_name;
 
-  private String uuid;
+	/**
+	 * The list of builds.
+	 *
+	 */
+	private Builds[] builds;
 
-  public String getId ()
-  {
-      return id;
-  }
+	/**
+	 * The owner of the repository.
+	 *
+	 */
+	private String repository_provider;
 
-  public void setId (String id)
-  {
-      this.id = id;
-  }
+	/**
+	 * The uuid.
+	 *
+	 */
+	private String uuid;
 
-  public String getRepository_name ()
-  {
-      return repository_name;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setRepository_name (String repository_name)
-  {
-      this.repository_name = repository_name;
-  }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public Builds[] getBuilds ()
-  {
-      return builds;
-  }
+	public String getRepository_name() {
+		return repository_name;
+	}
 
-  public void setBuilds (Builds[] builds)
-  {
-      this.builds = builds;
-  }
+	public void setRepository_name(String repository_name) {
+		this.repository_name = repository_name;
+	}
 
-  public String getRepository_provider ()
-  {
-      return repository_provider;
-  }
+	public Builds[] getBuilds() {
+		return builds;
+	}
 
-  public void setRepository_provider (String repository_provider)
-  {
-      this.repository_provider = repository_provider;
-  }
+	public void setBuilds(Builds[] builds) {
+		this.builds = builds;
+	}
 
-  public String getUuid ()
-  {
-      return uuid;
-  }
+	public String getRepository_provider() {
+		return repository_provider;
+	}
 
-  public void setUuid (String uuid)
-  {
-      this.uuid = uuid;
-  }
+	public void setRepository_provider(String repository_provider) {
+		this.repository_provider = repository_provider;
+	}
 
-  @Override
-  public String toString()
-  {
-      return "ClassPojo [id = "+id+", repository_name = "+repository_name+", builds = "+builds+", repository_provider = "+repository_provider+", uuid = "+uuid+"]";
-  }
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	@Override
+	public String toString() {
+		return "ClassPojo [id = " + id + ", repository_name = "
+				+ repository_name + ", builds = " + builds
+				+ ", repository_provider = " + repository_provider
+				+ ", uuid = " + uuid + "]";
+	}
 
 }
