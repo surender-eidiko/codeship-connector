@@ -7,25 +7,50 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StatusResponse {
-
-  private String statusCode;
-
-  private String statusMessage;
-
-  public String getStatusCode() {
-    return statusCode;
-  }
-
-  public void setStatusCode(String statusCode) {
-    this.statusCode = statusCode;
-  }
-
-  public String getStatusMessage() {
-    return statusMessage;
-  }
-
-  public void setStatusMessage(String statusMessage) {
-    this.statusMessage = statusMessage;
-  }
+	/**
+	 * The status code
+	 *
+	 */
+	private String statusCode;
+	/**
+	 * The status message
+	 *
+	 */
+	private String statusMessage;
+	
+	/**
+	 * The statusCode.
+	 *
+	 * @return The statusCode
+	 */
+	public String getStatusCode() {
+		return statusCode;
+	}
+	/**
+	 * The statusCode.
+	 *
+	 * @param statusCode
+	 *            The statusCode
+	 */
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
+	}
+	/**
+	 * The statusMessage.
+	 *
+	 * @return The statusMessage
+	 */
+	public String getStatusMessage() {
+		return statusMessage;
+	}
+	/**
+	 * The statusMessage.
+	 *
+	 * @param statusMessage
+	 *            The statusMessage
+	 */
+	public void setStatusMessage(String statusMessage) {
+		this.statusMessage = statusMessage;
+	}
 
 }

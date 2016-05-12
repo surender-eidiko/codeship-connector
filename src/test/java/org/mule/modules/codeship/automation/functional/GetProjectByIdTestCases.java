@@ -13,7 +13,7 @@ import org.mule.modules.codeship.automation.runner.FunctionalTestSuite;
 import org.mule.modules.codeship.bean.ListOfProjectsGetResponse;
 import org.mule.modules.codeship.bean.Projects;
 
-public class GetProjectByIdTestCases extends CodeShipAbstractTestCases {
+public class GetProjectByIdTestCases extends CodeshipAbstractTestCases {
 
 	public GetProjectByIdTestCases() {
 	  super(CodeshipConnector.class);

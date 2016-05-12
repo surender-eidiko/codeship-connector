@@ -10,13 +10,13 @@ import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
-public abstract class CodeShipAbstractTestCases extends
+public abstract class CodeshipAbstractTestCases extends
 		AbstractTestCase<CodeshipConnector> {
 
 	private CodeshipConnector connector;
 	private ConnectorDispatcher<CodeshipConnector> dispatcher;
 
-	public CodeShipAbstractTestCases(Class<CodeshipConnector> connector) {
+	public CodeshipAbstractTestCases(Class<CodeshipConnector> connector) {
 		 super(connector);
 	}
 

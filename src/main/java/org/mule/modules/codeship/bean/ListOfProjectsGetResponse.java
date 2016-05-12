@@ -19,6 +19,7 @@ public class ListOfProjectsGetResponse extends StatusResponse {
 	}
 
 	/**
+	 * The projects list 
 	 *
 	 * @param projects
 	 *            The projects list

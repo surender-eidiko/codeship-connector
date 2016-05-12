@@ -16,7 +16,7 @@ import org.mule.modules.codeship.bean.ListOfProjectsGetResponse;
 import org.mule.modules.codeship.bean.Projects;
 
 public class GetRestartBuildIdDetailsTestCases extends
-		CodeShipAbstractTestCases {
+		CodeshipAbstractTestCases {
 
 	public GetRestartBuildIdDetailsTestCases() {
 		super(CodeshipConnector.class);
