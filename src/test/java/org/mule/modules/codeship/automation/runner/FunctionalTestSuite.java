@@ -20,7 +20,8 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 @SuiteClasses({
 
 		GetProjectByIdTestCases.class,
-		GetListOfOfProjectsTestCases.class, GetRestartBuildIdDetailsTestCases.class
+		GetListOfOfProjectsTestCases.class, GetRestartBuildIdDetailsTestCases.class, 
+		FetchMetaDataKeyTestCases.class, FetchMetaDataTestCases.class
 })
 public class FunctionalTestSuite {
 
