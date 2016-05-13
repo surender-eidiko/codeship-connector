@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.mule.modules.codeship.CodeshipConnector;
+import org.mule.modules.codeship.automation.functional.FetchMetaDataKeyTestCases;
+import org.mule.modules.codeship.automation.functional.FetchMetaDataTestCases;
 import org.mule.modules.codeship.automation.functional.GetListOfOfProjectsTestCases;
 import org.mule.modules.codeship.automation.functional.GetProjectByIdTestCases;
 import org.mule.modules.codeship.automation.functional.GetRestartBuildIdDetailsTestCases;
