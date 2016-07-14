@@ -1,6 +1,19 @@
 <!-- BEGIN_INCLUDE(codeship:greet) -->
     <codeship:greet config-ref="" friend="#[map-payload:friend]" />
 <!-- END_INCLUDE(codeship:greet) -->
+
 <!-- BEGIN_INCLUDE(codeship:add-entity) -->
     <codeship:add-entity config-ref="" key="id1"/>
 <!-- END_INCLUDE(codeship:add-entity) -->
+
+<!-- BEGIN_INCLUDE(codeship:get-list-of-projects) -->
+<codeship:get-list-of-projects config-ref="Codeship__Configuration" api_key="3d1228d0f8050133ec772eb9f408a9c3" doc:name="Codeship"/>
+<!-- END_INCLUDE(codeship:get-list-of-projects) -->
+
+<!-- BEGIN_INCLUDE(codeship:get-project-by-id) -->
+<codeship:get-project-by-id config-ref="Codeship__Configuration" api_key="3d1228d0f8050133ec772eb9f408a9c3" doc:name="Codeship" projectId="150773"/>
+<!-- END_INCLUDE(codeship:get-project-by-id) -->
+
+<!-- BEGIN_INCLUDE(codeship:restart-build-by-id) -->
+ <codeship:restart-build-by-id config-ref="Codeship__Configuration" api_key="3d1228d0f8050133ec772eb9f408a9c3" doc:name="Codeship" buildId="14559005"/>
+ <!-- END_INCLUDE(codeship:restart-build-by-id) -->

@@ -61,8 +61,8 @@ public class CodeshipConnector {
 	 * @return ListOfProgectsGetResponse object
 	 */
 	@Processor
-	public ListOfProjectsGetResponse getListOfProjects() {
-		return getClient().getListOfProjects();
+	public ListOfProjectsGetResponse getListOfProjects(String api_key) {
+		return getClient().getListOfProjects(api_key);
 	}
 
 	/**
@@ -72,8 +72,8 @@ public class CodeshipConnector {
 	 * @return ProjectIdGetResponse
 	 */
 	@Processor
-	public Projects getProjectById(String projectId) {
-		return getClient().getProjectById(projectId);
+	public Projects getProjectById(String projectId,String api_key) {
+		return getClient().getProjectById(projectId,api_key);
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class CodeshipConnector {
 	 * @return BuildIdGetResponse
 	 */
 	@Processor
-	public BuildIdGetResponse restartBuildById(String buildId) {
-		return getClient().restartBuildById(buildId);
+	public BuildIdGetResponse restartBuildById(String buildId,String api_key) {
+		return getClient().restartBuildById(buildId,api_key);
 	}
 
 	/**

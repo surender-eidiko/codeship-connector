@@ -48,7 +48,7 @@ public abstract class CodeshipAbstractTestCases extends
 	
 	public ListOfProjectsGetResponse getProjectList(){
 	  
-	  ListOfProjectsGetResponse listOfProjects = getConnector().getListOfProjects();
+	  ListOfProjectsGetResponse listOfProjects = getConnector().getListOfProjects(null);
 	  return listOfProjects;
 	}
 	

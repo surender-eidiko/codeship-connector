@@ -27,10 +27,9 @@ public class GetProjectByIdTestCases extends CodeshipAbstractTestCases {
 		if(listOfProjects.getProjects().length >0 ){
 		  Projects projects = listOfProjects.getProjects()[0];
 		  String projectId =  projects.getId();
-		  Projects project = getConnector().getProjectById(
-				projectId);
-		assertNotNull(project);
-		 assertEquals("200", project.getStatusCode() );
+		  Projects project = getConnector().getProjectById(projectId,null);
+		  assertNotNull(project);
+		  assertEquals("200", project.getStatusCode() );
 		}
 		 
 

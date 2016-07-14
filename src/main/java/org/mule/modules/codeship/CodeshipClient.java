@@ -43,31 +43,42 @@ public class CodeshipClient {
 				.getUrl());
 	}
 
-	public ListOfProjectsGetResponse getListOfProjects() {
+	public ListOfProjectsGetResponse getListOfProjects(String api_key) {
 		WebResource webResource = getApiResource().path("projects.json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-	      queryParams.add("api_key",getConnector().getConfig().getApiKey());
+		 if(api_key!=null){
+			 queryParams.add("api_key", api_key);
+		 }else{
+			 queryParams.add("api_key",getConnector().getConfig().getApiKey());
+		 }
 	    webResource = webResource.queryParams(queryParams);
 		return (ListOfProjectsGetResponse) getData(webResource,
 				ListOfProjectsGetResponse.class);
 	}
 	
-	public Projects getProjectById(String projectId) {
+	public Projects getProjectById(String projectId,String api_key) {
 		WebResource webResource = getApiResource().path("projects").path(projectId+".json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-     queryParams.add("api_key",getConnector().getConfig().getApiKey());
+		 if(api_key!=null){
+			 queryParams.add("api_key", api_key);
+		 }else{
+			 	queryParams.add("api_key",getConnector().getConfig().getApiKey());
+		 }
      webResource = webResource.queryParams(queryParams);
 			    return (Projects) getData(webResource,
 			    		Projects.class);
 	}
 	
-	public BuildIdGetResponse restartBuildById(String buildId) {
+	public BuildIdGetResponse restartBuildById(String buildId,String api_key) {
 		WebResource webResource = getApiResource().path("builds").path(buildId).path("restart.json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-     queryParams.add("api_key",getConnector().getConfig().getApiKey());
-     webResource = webResource.queryParams(queryParams);
-	    return (BuildIdGetResponse) postData(null,webResource,
-	    		BuildIdGetResponse.class);
+		 if(api_key!=null){
+			 queryParams.add("api_key", api_key);
+		 }else{
+			 	queryParams.add("api_key",getConnector().getConfig().getApiKey());
+		 }
+		 webResource = webResource.queryParams(queryParams);
+		 return (BuildIdGetResponse) postData(null,webResource,BuildIdGetResponse.class);
 	}
 
 	private Object getData(WebResource webResource, Class<?> returnClass) {

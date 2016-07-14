@@ -32,8 +32,7 @@ public class GetRestartBuildIdDetailsTestCases extends
 			Builds[] builds = projects.getBuilds();
 			if (builds.length > 0) {
 				String buildId = builds[0].getId();
-				BuildIdGetResponse buildData = getConnector().restartBuildById(
-						buildId);
+				BuildIdGetResponse buildData = getConnector().restartBuildById(buildId,null);
 				assertNotNull(buildData);
 				assertEquals("200", buildData.getStatusCode());
 			}
