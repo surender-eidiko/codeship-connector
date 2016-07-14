@@ -1,12 +1,12 @@
 
-= CiscoSpark Connector Release Notes
+= Codeship Connector Release Notes
 ////
-[<System_Name>: Cisco Spark]
+[<System_Name>: Codeship]
 ////
-:keywords: Cisco, Spark
+:keywords: Codeship
 
 
-The CiscoSpark connector facilitates connections between Mule integration and CiscoSpark applications. The CiscoSpark connector  provides to create new Spark Rooms, Add members, post messages, create Webhooks, etc.
+Codeship is a fast and secure hosted Continuous Delivery platform that scales with your needs.The Codeship is configured to build and deploy the application from GitHub to the staging or the production platform of your choice.
 
 *Guide:* <Connector_Guide_Link>
 ////
@@ -42,40 +42,14 @@ Points to the docs.mulesoft pages for documentation on the functional aspects of
 === Features
 
 . Version 1.0 Supported Operations
-The Cisco Spark Connector 1.0 allows you to perform the following operations:
+The Codeship Connector 1.0 allows you to perform the following operations:
 
-CiscoSpark Connector Operations +
+Codeship Connector Operations +
 
-1. Create Rooms +
-2. Get Rooms +
-3. Get Room by Id +
-4. Update Room by Id +
-5. Delete Room by Id +
-6. Get Messages +
-7. Post Messages +
-8. Get Messages by Id +
-9. Delete Message by Id +
-10. Get People +
-11. Get People by Id +
-12. Get Memberships +
-13. Add Member To Room +
-14. Get Membership by Id +
-15. Update Membership by Id +
-16. Delete Membership by Id +
-17. Get Subscriptions +
-18. Get Subscriptions by Id +
-19. Delete Subscription by Id +
-20. Get Web Hooks +
-21. Post Web hook +
-22. Get Web Hooks by Id +
-23. Update Web hook by Id +
-24. Delete Web Hook by Id +
-25. Get Applications +
-26. Get Applications by Id  +
-27. Register Application +
-28. Update Application by Id +
-29. Add Entity +
-30. Delete Application by Id +
+1. Get Projects +
+2. Get Project by ID +
+3. Restart Build +
+
 
 === Fixed in this Release
 Version 1.0 Fixed in this Release
