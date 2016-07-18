@@ -143,10 +143,9 @@ image::httpGlobalProperties.jpg[]
 |Field	|Description
 |Display Name	|Codeship.
 |Connector Configuration	|select the global configuration created earlier.
-|Operation	|Create Rooms
+|Operation	|get list of projects
  |General	|Select Define Attributes:
-|			|Title|MuleTestroom
-|			|Members| None
+|			|Api_key|Api key of codeship connector
 |===
 
 7. Drag a Object to Json transformer to the flow.
@@ -156,12 +155,12 @@ image::httpGlobalProperties.jpg[]
 [tab,title="XML Editor"]
 ....
 1. Add a Codeship:config global element to your project, then configure its attributes according to the table below (see code below for a complete sample).+
- <Codeship:config name="Codeship__Configuration" authorization="Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk" doc:name="Codeship: Configuration"/>
+ <codeship:config name="Codeship__Configuration" apiKey="83dc0b40057501344cdb52d3a6e8b2fb" doc:name="Codeship: Configuration"/>
 
 |===
 |Attribute|Value
 |name|Codeship__Configuration
-|authorization|<Auth Token>
+|Api_key|<Api Key>
 |===
 2. Add a http:listener-config global element to you project +
 
@@ -175,15 +174,12 @@ image::httpGlobalProperties.jpg[]
 |port|8081
 |===
 
-4. Add a CodeshipConnector to your muleflow after the http endpoint according to the table below
-		<Codeship:create-rooms config-ref="Codeship__Configuration" doc:name="Codeship">
-            <Codeship:rooms-post-request title="MuleTestRoom"/>
-        </Codeship:create-rooms>
+4. Add a CodeshipConnector to your muleflow after the http endpoint according to the table below +
+		<codeship:get-list-of-projects config-ref="Codeship__Configuration" api_key="83dc0b40057501344cdb52d3a6e8b2fb" doc:name="Codeship"/>
 |===
 |Attribute|Value
 |config-ref|Codeship__Configuration
-|operation|create-rooms
-|title|MuleTestRoom
+|operation|get-list-of-projects
 |===
 
 5. Add a Object to Json transformer to your muleflow after the CodeshipConnector
@@ -195,24 +191,24 @@ image::httpGlobalProperties.jpg[]
 
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:Codeship="http://www.mulesoft.org/schema/mule/Codeship" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+<mule xmlns:codeship="http://www.mulesoft.org/schema/mule/codeship" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/Codeship http://www.mulesoft.org/schema/mule/Codeship/current/mule-Codeship.xsd
+http://www.mulesoft.org/schema/mule/codeship http://www.mulesoft.org/schema/mule/codeship/current/mule-codeship.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
-    <Codeship:config name="Codeship__Configuration" authorization="Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk" doc:name="Codeship: Configuration"/>
-    <flow name="sparcreateroomFlow">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="9090" doc:name="HTTP Listener Configuration"/>
+    <codeship:config name="Codeship__Configuration" apiKey="83dc0b40057501344cdb52d3a6e8b2fb" doc:name="Codeship: Configuration"/>
+    <flow name="codeship-testFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
-        <Codeship:create-rooms config-ref="Codeship__Configuration" doc:name="Codeship">
-            <Codeship:rooms-post-request title="MuleTestRoom"/>
-        </Codeship:create-rooms>
+        <codeship:get-list-of-projects config-ref="Codeship__Configuration" api_key="83dc0b40057501344cdb52d3a6e8b2fb" doc:name="Codeship"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger level="INFO" doc:name="Logger"/>
     </flow>
 </mule>
+
 
 
 ---
