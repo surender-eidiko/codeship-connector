@@ -4,7 +4,7 @@
 
 The Codeship connector is configured to build and deploy the application from GitHub to the staging or the production platform of user choice.
 
-*Release Notes:* link:/release-notes/CodeshipReleaseNotes.adoc[Link to Release Notes]
+*Release Notes:* link:/release-notes.adoc[Link to Release Notes]
 
 ////
 Note: existing MuleSoft documentation should be copied from right-hand column of link:https://github.com/mulesoft/mulesoft-docs/blob/master/links.csv. Links should always follow "link:"
