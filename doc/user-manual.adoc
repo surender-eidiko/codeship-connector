@@ -65,7 +65,7 @@ As we can see in the image below the Cisco Tropo Connector is available in conne
 image::palette.jpg[]
 
 === Configuring
-To use the Codeship Connector in your Mule application, you must configure:
+To use the Codeship Connector in your Mule application, you must configure: +
 •	A global Codeship element to be used by all the Codeship connectors in the application (read more about global elements in Mule).
 •	Parameters of each Codeship Connector instance in the flow.
 
@@ -81,10 +81,10 @@ image::configuration.jpg[]
 
 |Name	|Enter a name for the configuration so it can be referenced later 
 
-|Authorization       	|Authorization Token for connecting and loggin into Codeship
+|Api Key    	|Api key of your codeship  for  access the Codeship api
 
 
-|URL		|https://api.Codeship.com/v1
+|URL		|https://codeship.com/api/v1
 |===
 
 
@@ -109,6 +109,7 @@ Follow these steps to configure the parameters of a Codeship Connector in the fl
  Get Projects,Get Project by ID ,Restart Build 
 |General	|Reference or expression: Select this option to define the parameters based on expression.
 Define Attributes: Select this option to define the values manually.
+|Api_key   | pass your codeship api key
 |===
 
 3.	Click the blank space on the canvas to save your configurations. +
