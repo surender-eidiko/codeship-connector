@@ -4,7 +4,7 @@
 ## [Codeship] Anypoint™ Connector
 
 
-[Codeship Connector to connect to Cisco Spark]
+[Codeship Connector to connect to Codeship]
 
 ## Author
 : 
@@ -16,14 +16,13 @@ Mule 3.7.0
 
 ## Codeship supported versions
 :
-Cisco Spark Version 1.0 and above.
+Codeship Version 1.0 and above.
 
 ## Service or application supported modules
 Example:Codeship
 ## Installation 
 
-You can access the full documentation 
-<https://github.com/surender-eidiko/codeship-connector/blob/master/doc/user-manual.adoc>.
+You can access the full documentation <https://github.com/surender-eidiko/codeship-connector/blob/master/doc/user-manual.adoc>.
 
 ## Reporting Issues
 
