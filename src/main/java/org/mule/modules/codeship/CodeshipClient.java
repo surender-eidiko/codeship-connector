@@ -43,11 +43,11 @@ public class CodeshipClient {
 				.getUrl());
 	}
 
-	public ListOfProjectsGetResponse getListOfProjects(String api_key) {
+	public ListOfProjectsGetResponse getListOfProjects(String apiKeys) {
 		WebResource webResource = getApiResource().path("projects.json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		 if(api_key!=null){
-			 queryParams.add("api_key", api_key);
+		 if(apiKeys!=null){
+			 queryParams.add("api_key", apiKeys);
 		 }else{
 			 queryParams.add("api_key",getConnector().getConfig().getApiKey());
 		 }
@@ -56,11 +56,11 @@ public class CodeshipClient {
 				ListOfProjectsGetResponse.class);
 	}
 	
-	public Projects getProjectById(String projectId,String api_key) {
+	public Projects getProjectById(String projectId,String apiKeys) {
 		WebResource webResource = getApiResource().path("projects").path(projectId+".json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		 if(api_key!=null){
-			 queryParams.add("api_key", api_key);
+		 if(apiKeys!=null){
+			 queryParams.add("api_key", apiKeys);
 		 }else{
 			 	queryParams.add("api_key",getConnector().getConfig().getApiKey());
 		 }
@@ -69,11 +69,11 @@ public class CodeshipClient {
 			    		Projects.class);
 	}
 	
-	public BuildIdGetResponse restartBuildById(String buildId,String api_key) {
+	public BuildIdGetResponse restartBuildById(String buildId,String apiKeys) {
 		WebResource webResource = getApiResource().path("builds").path(buildId).path("restart.json");
 		 MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		 if(api_key!=null){
-			 queryParams.add("api_key", api_key);
+		 if(apiKeys!=null){
+			 queryParams.add("api_key", apiKeys);
 		 }else{
 			 	queryParams.add("api_key",getConnector().getConfig().getApiKey());
 		 }
@@ -103,12 +103,9 @@ public class CodeshipClient {
 	}
 
 	private WebResource.Builder addHeader(WebResource webResource) {
-		WebResource.Builder builder = webResource
+	  return  webResource
 				.accept(MediaType.APPLICATION_JSON);
 
-	//	builder.header("Authorization", connector.getConfig()
-	//			.getAuthorization());
-		return builder;
 	}
 
 	private Object buildResponseObject(Class<?> returnClass,

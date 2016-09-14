@@ -58,10 +58,6 @@ public class DataSenseResolver {
     @MetaDataRetriever
     public MetaData getMetaData(MetaDataKey key) throws Exception {
         DefaultMetaDataBuilder builder = new DefaultMetaDataBuilder();
-        //If you have a Pojo class
-        //PojoMetaDataBuilder<?>  pojoObject=builder.createPojo(Pojo.class);
-
-        //If you use maps as input of your processors that work with DataSense
         DynamicObjectBuilder<?> dynamicObject = builder.createDynamicObject(key
                 .getId());
 
@@ -73,9 +69,8 @@ public class DataSenseResolver {
             dynamicObject.addSimpleField("Tittle", DataType.STRING);
         }
         MetaDataModel model = builder.build();
-        MetaData metaData = new DefaultMetaData(model);
 
-        return metaData;
+        return new DefaultMetaData(model);
     }
 
     public CodeshipConnector getConnector() {
