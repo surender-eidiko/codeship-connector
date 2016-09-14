@@ -132,7 +132,6 @@ public class CodeshipClient {
 				log.log(Level.SEVERE, "Error", ex);
 			}
 		}
-System.out.println(convertObjectToString(statusResponse));
 		return statusResponse;
 
 	}
@@ -147,7 +146,6 @@ System.out.println(convertObjectToString(statusResponse));
 		} catch (Exception ex) {
 			log.log(Level.SEVERE, "Error", ex);
 		}
-		log.info("Input String = " + input);
 		return input;
 	}
 
